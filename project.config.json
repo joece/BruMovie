@@ -6,5 +6,6 @@
 	},
 	"appid": "wx458833590e95acb3",
 	"projectname": "BruMovie",
+	"compileType": "miniprogram",
 	"condition": {}
 }
