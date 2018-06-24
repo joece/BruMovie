@@ -1,0 +1,10 @@
+{
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx458833590e95acb3",
+	"projectname": "BruMovie",
+	"condition": {}
+}
