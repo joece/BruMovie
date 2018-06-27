@@ -1,0 +1,60 @@
+/* pages/mine/index.wxss */
+page{
+  background-color: #F5f5f5;
+}
+.container {
+  padding: 22px 0px;
+  background-color: #4D8CFD;
+  height: 145px;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #fff;
+}
+.my_orders{
+  background-color: #fff;
+  height: 133px;
+  margin-top: 9px;
+  padding-top: 9px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.mineorders{
+  width: 360px;
+  text-align: center;
+}
+.rowflex{
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 14px;
+  padding-bottom: 32px;
+}
+.img1,.img3,.img4{
+  width: 40px;
+  height: 40px;
+  padding-left: 25px;
+}
+.img2{
+  width: 42px;
+  height: 42px;
+  padding-left: 25px;
+}
+.order1,.order2,.order3,.order4{
+  width: 90px;
+  height: 100px;
+}
+.orderkind1,.orderkind2,.orderkind3,.orderkind4{
+  padding-left: 17px;
+}
+
