@@ -1,0 +1,28 @@
+<!--pages/mine/index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>
+<view class="my_orders">
+  <view class="mineorders">我的订单</view> 
+  <view class="rowflex">
+    <view class="order1" bindtap="showticketorder">
+      <image class="img1" src="../../images/ticket.png"></image>
+      <text class="orderkind1">即将观影</text>
+    </view>
+    <view class="order2" bindtap="showhistory">
+      <image class="img2" src="../../images/history.png"></image>
+      <text class="orderkind2">观影足迹</text>
+    </view>
+    <view class="order3" bindtap="showaround">
+      <image class="img3" src="../../images/popcorn.png"></image>
+      <text class="orderkind3">观影周边</text>
+    </view>
+    <view class="order4" bindtap="showcomment">
+      <image class="img4" src="../../images/comment.png"></image>
+      <text class="orderkind4">观影评价</text>
+    </view>
+  </view>
+</view>

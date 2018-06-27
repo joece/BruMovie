@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='loginbutton'>
+    <button type='primary' open-type='getUserInfo' bindtap='login'>微信授权一键登录</button>
+  </view>
+   
+</view>

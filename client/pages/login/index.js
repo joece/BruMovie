@@ -2,6 +2,7 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
+const app = getApp()
 
 Page({
     data: {
@@ -14,7 +15,7 @@ Page({
     // 用户登录示例
     login: function() {
         if (this.data.logged) return
-
+        console.log('loging')
         util.showBusy('正在登录')
         var that = this
 
@@ -27,6 +28,7 @@ Page({
                         userInfo: result,
                         logged: true
                     })
+                    app.globalData.userInfo = result
                 } else {
                     // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
                     qcloud.request({

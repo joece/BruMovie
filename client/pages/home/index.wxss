@@ -1,0 +1,49 @@
+/**index.wxss**/
+page{
+  background-color: #f5f5f5;
+}
+.topbar{
+  padding: 0 0;
+  height: 32px;
+  align-items: center;
+  border-bottom: white;
+  flex-direction: row;
+  display: flex;
+}
+.locate{
+  display: flex;
+  flex-direction: row;
+  margin-left: 18%;
+  margin-right: 2px;
+}
+.location{
+  display: flex;
+  padding-top: 9px;
+  font-size: 16px;
+  color: #999;
+}
+.locaicon{
+  width: 16px;
+  height: 16px;
+  padding: 10px;
+}
+.ingorwillbe{
+  font-size: 18px;
+  color: #666;
+  padding-top: 8px;
+  margin-left: 25%;
+}
+.showing{
+  margin-right: 24px;
+  color: purple; 
+}
+.filmInfo{
+  width: 168px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+.filmPost{
+  width: 160px;
+  height: 80px;
+}
