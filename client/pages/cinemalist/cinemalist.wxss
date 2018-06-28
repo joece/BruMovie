@@ -1,49 +1,24 @@
-.head {
-  height: 84rpx;
-  background-color: #4D8CFD;
-  display: flex;
-  align-items: center;
+.head{
+  margin-bottom: 2rpx;
+}
+.scroll-H {
+  white-space: nowrap;
 }
 
-.selpoi {
-  font-size: 14px;
-  margin: 0 26rpx;
-  color: white;
-}
-
-.search-rad {
-  height: 56rpx;
-  background-color: white;
-  border-radius: 20rpx;
-  flex: 1;
-  margin: 0 20rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: #aaa;
-}
-
-.selcity {
-  position: relative;
-}
-
-.navigator-arrow:after {
-  content: " ";
+.scroll-H-item {
   display: inline-block;
-  height: 18rpx;
-  width: 18rpx;
-  border-width: 2rpx 2rpx 0 0;
-  border-color: white;
-  border-style: solid;
-  transform: matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
-  position: absolute;
-  right: -28rpx;
-  margin-top: -30rpx;
+  font-size: 26rpx;
+  padding: 20rpx 20rpx 28rpx;
+  color: #676767;
+}
+.active{
+  color:#EF4238;
+  border-bottom: 4rpx #EF4238 solid;
 }
 
 .body {
   padding-left: 20rpx;
+  border-top: 1rpx #DCDCDC solid;
 }
 
 .theater {
@@ -61,13 +36,15 @@
 }
 
 .lower {
-  color: #EF4238;
+  color: #ef4238;
 }
-.lowerN{
+
+.lowerN {
   font-size: 26rpx;
   margin-left: 20rpx;
 }
-.lowerL{
+
+.lowerL {
   font-size: 22rpx;
 }
 
@@ -81,14 +58,12 @@
   display: flex;
   font-size: 22rpx;
   margin-top: 18rpx;
-  
-
 }
-.tipC{
+
+.tipC {
   padding: 4rpx;
   margin-right: 6rpx;
 }
-
 
 .blue {
   border: 1rpx #589daf solid;
@@ -125,4 +100,11 @@
 
 .kaL {
   background-color: #a97be0;
+}
+
+.times {
+  display: flex;
+  font-size: 24rpx;
+  color: #797979;
+  margin-top: 18rpx;
 }

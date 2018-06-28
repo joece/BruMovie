@@ -43,11 +43,11 @@ Page({
     })
   
   },
-  loadCity: function (longitude, latitude) {
+  loadCity: function (latitude, longitude) {
     var page = this
     console.log(latitude)
     wx.request({
-      url: 'https://api.map.baidu.com/geocoder/v2/?ak=olaWhkFxfhl5Q17O4rrg7xfIclYnpete&location=113.26627,' + longitude + '&output=json&coordtype=wgs84ll',
+      url: 'https://api.map.baidu.com/geocoder/v2/?ak=olaWhkFxfhl5Q17O4rrg7xfIclYnpete&location='+ latitude + ',' + longitude + '&output=json&coordtype=wgs84ll',
       data: {},
       header: {
         'Content-Type': 'application/json'
