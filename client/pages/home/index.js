@@ -24,14 +24,19 @@ Page({
     
   },
   onLoad: function () {
+    
+  
+  },
+
+  onShow: function(){
     var page = this
     wx.authorize({
       scope: 'scope.userLocation',
       success(res) {
         console.log('允许获取用户位置')
         wx.getLocation({
-          success: function(res) {
-            page.loadCity(res.latitude,res.longitude)
+          success: function (res) {
+            page.loadCity(res.latitude, res.longitude)
           },
         })
       },
@@ -39,7 +44,6 @@ Page({
         console.log('拒绝获取用户位置')
       }
     })
-  
   },
   loadCity: function (latitude, longitude) {
     var page = this
@@ -57,12 +61,6 @@ Page({
           page.setData({ city: city.slice(0,-1) })
         else
           page.setData({ city: city })
-      },
-      fail: function () {
-        // fail  
-      },
-      complete: function () {
-        // complete  
       }
     })
   },
