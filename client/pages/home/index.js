@@ -21,9 +21,7 @@ Page({
     })
   },
   locate:function(){
-    wx.getLocation({
-      success: function(res) {},
-    })
+    
   },
   onLoad: function () {
     var page = this
@@ -45,7 +43,6 @@ Page({
   },
   loadCity: function (latitude, longitude) {
     var page = this
-    console.log(latitude)
     wx.request({
       url: 'https://api.map.baidu.com/geocoder/v2/?ak=olaWhkFxfhl5Q17O4rrg7xfIclYnpete&location='+ latitude + ',' + longitude + '&output=json&coordtype=wgs84ll',
       data: {},
@@ -54,15 +51,33 @@ Page({
       },
       success: function (res) {
         // success  
-        console.log(res);
-        var city = res.data.result.addressComponent.city;
-        page.setData({ city: city });
+        console.log(res)
+        var city = res.data.result.addressComponent.city
+        if(city.charAt(city.length - 1)=='市')
+          page.setData({ city: city.slice(0,-1) })
+        else
+          page.setData({ city: city })
       },
       fail: function () {
         // fail  
       },
       complete: function () {
         // complete  
+      }
+    })
+  },
+
+  remind: function (onLoad) {
+    var page = this
+    var positionCity = page.globalData.positionCity
+    var currentCity = page.globalData.currentCity
+    wx.showModal({
+      title: '',
+      content: '定位到您当前所在的城市在' + positionCity + ',是否切换',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('confirm')
+        }
       }
     })
   }

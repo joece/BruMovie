@@ -4,8 +4,8 @@ var config = require('./config')
 
 App({
     globalData:{
-      currentCity: '广州',
-      positionCity: '广州',
+      currentCity: '',
+      locateCity: '',
       userInfo: null
     },
 
