@@ -10,7 +10,8 @@
     "pages/comment/index",
     "pages/login/index",
     "pages/cinema/position/position",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/qrcode/qrcode"
   ],
   "window": {
     "backgroundTextStyle": "light",
