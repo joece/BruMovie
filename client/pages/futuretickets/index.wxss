@@ -40,8 +40,8 @@ page{
   padding-bottom: 32px;
 }
 .img1{
-  width: 40px;
-  height: 40px;
+  width: 57px;
+  height: 84px;
   padding-left: 25px;
 }
 .order1{

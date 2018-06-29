@@ -1,2 +1,14 @@
 <!--pages/history/index.wxml-->
-<text>pages/history/index.wxml</text>
+<view class="my_orders">
+  <view class="cinemaname">万达影城</view> 
+  <view class="rowflex">
+    <view class="order1" bindtap="showticketorder">
+      <image class="img1" src="{{postpath_saw}}"></image>
+    </view>
+    <view class="order2" bindtap="showticketorder">
+      <text class="movie"> {{moviename_saw}} </text>
+      <text class="time"> {{movietime_saw}} </text>
+    </view>
+  </view>
+</view>
+

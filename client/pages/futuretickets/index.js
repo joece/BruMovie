@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    myorders:[
+   myorders:[
       {
         'cinema':'珠江金逸影院（大学城店)',
         'price': '38',
@@ -15,6 +15,12 @@ Page({
         'postpath': "../../images/ticket.png"
       }
     ]
+  },
+
+  showticketorder: function () {
+    wx.navigateTo({
+      url: '../qrcode/qrcode',
+    })
   },
 
 })

@@ -1,11 +1,12 @@
-// pages/movies/cinema/position.js
+// pages/qrcode/qrcode.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    ordernumber:23474623584673285,
+    qrcodeimg:"../../images/qrcode.png"
   },
 
   /**
