@@ -11,7 +11,9 @@
     "pages/login/index",
     "pages/cinema/position/position",
     "pages/search/search",
-    "pages/qrcode/qrcode"
+    "pages/qrcode/qrcode",
+    "pages/movies/detail/detail"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
