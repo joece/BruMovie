@@ -13,6 +13,14 @@ Page({
         'movietime': "07月02日 13:00",
         'moviename': "金瓶梅",
         'postpath': "../../images/ticket.png"
+      },
+      {
+        'cinema': '珠江金逸影院（zhong城店)',
+        'price': '38',
+        'chairnum': "3号厅-6FL9排13座",
+        'movietime': "07月02日 13:00",
+        'moviename': "sejie",
+        'postpath': "../../images/ticket.png"
       }
     ]
   },
