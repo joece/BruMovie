@@ -60,6 +60,8 @@ CREATE TABLE `cinema` (
   `cinema_phone` varchar(13) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cinema_des` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cinema_star` integer NOT NULL,
+  `longitude` float NOT NULL,
+  `latitude` float NOT NULL,
   `cinema_img_url` varchar(200),
   PRIMARY KEY (`cinema_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='cinema';
