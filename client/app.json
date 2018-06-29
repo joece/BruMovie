@@ -8,7 +8,9 @@
     "pages/history/index",
     "pages/around/index",
     "pages/comment/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/cinema/position/position",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

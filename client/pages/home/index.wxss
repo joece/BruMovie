@@ -4,9 +4,9 @@ page{
 }
 .topbar{
   padding: 0 0;
-  height: 32px;
+  height: 40px;
   align-items: center;
-  border-bottom: white;
+  border-bottom: 1rpx #a5a5a5 solid;
   flex-direction: row;
   display: flex;
 }
@@ -18,7 +18,7 @@ page{
 }
 .location{
   display: flex;
-  padding-top: 9px;
+  padding-top: 8px;
   font-size: 16px;
   color: #999;
 }
@@ -28,14 +28,20 @@ page{
   padding: 10px;
 }
 .ingorwillbe{
-  font-size: 18px;
+  font-size: 17px;
   color: #666;
-  padding-top: 8px;
   margin-left: 25%;
+  padding-bottom: 1px;
 }
 .showing{
   margin-right: 24px;
   color: purple; 
+  padding-bottom: 4px;
+  border-bottom: 1px purple solid;
+}
+.willbe{
+  color: purple; 
+  padding-bottom: 4px;
 }
 .filmInfo{
   width: 168px;

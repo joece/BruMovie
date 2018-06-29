@@ -1,9 +1,15 @@
 <!--pages/mine/index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <view  wx:if="{{hasUseInfo}}" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
+  <view wx:else style='padding-top:24px;'>
+   <button open-type='getUserInfo' class='btn' bindtap='login'>
+    <image src='../../images/Wechat.png' class='wxlogo'></image>微信快捷登陆
+   </button>
+  </view>
+ 
 </view>
 <view class="my_orders">
   <view class="mineorders">我的订单</view> 
