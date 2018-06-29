@@ -1,21 +1,12 @@
-// pages/futuretickets/index.js
+// pages/qrcode/qrcode.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    price:38,
-    chairnum: "3号厅-6FL9排13座",
-    movietime:"07月02日 13:00",
-    moviename:"3D肉蒲团之极乐宝鉴",
-    postpath_ordered:"../../images/3d肉蒲团.png"
-  },
-
-  showticketorder: function () {
-    wx.navigateTo({
-      url: '../qrcode/qrcode',
-    })
+    ordernumber:23474623584673285,
+    qrcodeimg:"../../images/qrcode.png"
   },
 
   /**
