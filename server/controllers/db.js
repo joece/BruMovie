@@ -1,5 +1,6 @@
 const { mysql } = require('../qcloud.js')
 const { mysql: config } = require('../config')
+const AuthDbService = require('../node_modules/wafer-node-sdk/lib/mysql/AuthDbService')
 const DB = require('knex')({
   client: 'mysql',
   connection: {
@@ -62,11 +63,18 @@ async function postLocation(ctx, next) {
   result = await DB.raw('INSERT INTO `location` (`location_id`,`province_id`,`city_id`,`block_id`,`street_name`,`door_name`) VALUES(' + count + ',' + body.provinceId + ',' + body.cityId + ',' + body.blockId + ',"' + body.streetName + '","' + body.doorName + '")').then((res) => {
     return res
   })
-  result = await DB.raw('INSERT INTO `locationUserOrCinema` (`location_id`,`type`,`open_id`,`cinema_id`) VALUES(' + count + ',0,"ididid",NULL)').then((res) => {
+  var skey = body.skey
+  var userInfo = await AuthDbService.getUserInfoBySKey(skey).then((res) => {return res})
+  if (userInfo.length < 1) {
+    return
+  }
+  result = await DB.raw('INSERT INTO `locationUserOrCinema` (`location_id`,`type`,`open_id`,`cinema_id`) VALUES(' + count + ',0,"' + userInfo[0].open_id + '",NULL)').then((res) => {
     return res
   })
-  ctx.body = result
+  ctx.body.resultCode = 0
 }
+
+
 
 module.exports = {
   dbtest, 
