@@ -102,6 +102,7 @@ CREATE TABLE `seat` (
   `seat_id` integer NOT NULL,
   `row` integer NOT NULL, 
   `col` integer NOT NULL,
+  `state` integer NOT NULL,
   PRIMARY KEY (`screening_id`, `cinema_id`, `movie_id`, `seat_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='seat';
 

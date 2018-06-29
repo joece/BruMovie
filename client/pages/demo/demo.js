@@ -119,13 +119,15 @@ Page({
       //url: 'https://k3d2hspl.qcloud.la/weapp/city?provinceId=44'
       //url: 'https://k3d2hspl.qcloud.la/weapp/block?provinceId=44&cityId=01',
       //url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
-      url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
+      //url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
+      url: 'https://k3d2hspl.qcloud.la/weapp/movie',
       success(result) {
         wx.cc = result.data
         console.log(result.data)
       }
     })
     /*
+    // 添加location的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/location',
       method: 'POST',
@@ -142,9 +144,28 @@ Page({
       },
       success(result) {
         wx.pc = result.data
-        //console.log(result.data.data)
+        console.log(result.data.data)
       }
     })
     */
+    
+    // 创建订单的post请求
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/order',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+        price: 100,
+        note: ''
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+      }
+    })
+    
   }
 })
