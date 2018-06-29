@@ -32,6 +32,11 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 
-router.get('/demo', controllers.demo)
+router.get('/dbtest', controllers.db.dbtest)
+router.get('/province', controllers.db.getProvince)
+router.get('/city', controllers.db.getCity)
+router.get('/block', controllers.db.getBlock)
+router.post('/location', controllers.db.postLocation)
+router.get('./cinema', controllers.db.getCinema)
 
 module.exports = router
