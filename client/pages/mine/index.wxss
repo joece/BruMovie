@@ -7,6 +7,21 @@ page{
   background-color: #4D8CFD;
   height: 145px;
 }
+.btn{
+  width:180px;
+  height: 46px;
+  color: white;
+  background-color: #9dbffe;
+  display: flex;
+  flex-direction: row;
+}
+.wxlogo{
+  width:24px;
+  height: 24px;
+  padding-right: 4px;
+  padding-left: 9px;
+  padding-top: 10px;
+}
 .userinfo {
   display: flex;
   flex-direction: column;

@@ -9,7 +9,9 @@ Page({
 
   },
   onLoad: function (options) {
-
+    this.setData({
+      search: {'placeholder':options.for, 'his': ['null','sejie']}
+    })
   },
   searchinput: function (ev) {
     var that = this

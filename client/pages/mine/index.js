@@ -1,5 +1,7 @@
 //index.js
-//获取应用实例
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
 const app = getApp()
 
 Page({
@@ -8,10 +10,49 @@ Page({
     hasUseInfo:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+  
+  login: function () {
+    if (this.data.hasUseInfo) return
+    console.log('loging')
+    util.showBusy('正在登录')
+    var that = this
+
+    // 调用登录接口
+    qcloud.login({
+      success(result) {
+        if (result) {
+          util.showSuccess('登录成功')
+          that.setData({
+            userInfo: result,
+            hasUseInfo: true
+          })
+          app.globalData.userInfo = result
+        } else {
+          // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
+          qcloud.request({
+            url: config.service.requestUrl,
+            hasUseInfo: true,
+            success(result) {
+              util.showSuccess('登录成功')
+              that.setData({
+                userInfo: result.data.data,
+                hasUseInfo: true
+              })
+              app.globalData.userInfo = result
+            },
+
+            fail(error) {
+              util.showModel('请求失败', error)
+              console.log('request fail', error)
+            }
+          })
+        }
+      },
+
+      fail(error) {
+        util.showModel('登录失败', error)
+        console.log('登录失败', error)
+      }
     })
   },
   //即将观影页面跳转

@@ -13,7 +13,7 @@ Page({
             title: '当前城市-' + prama.city
         })
         this.setData({
-            position: app.globalData.positionCity,
+            position: app.globalData.locateCity,
             recent: wx.getStorageSync('recity') || []
         })
 

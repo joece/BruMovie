@@ -1,21 +1,21 @@
 <!--index.wxml-->
 <view class="topbar">
-  <image class="searchicon" src="../../images/search.png" style="width:36px;height:36px;"></image>
+  <image bindtap='search' class="searchicon" src="../../images/search.png" style="width:36px;height:36px;"></image>
  
   <view class="ingorwillbe">
-    <text class="showing" bindtap="showingfilms" style="color:{{hotshowing?'purple;':'#666;'}}">热映</text>
-    <text class="willbe" bindtap="willbefilms" style="color:{{hotshowing?'#666;':'purple;'}}">待映</text>
+    <text class="showing" bindtap="showingfilms" style="color:{{hotshowing?'purple;':'#666;'}} border-bottom: {{hotshowing?'1px purple solid;':'none;'}}">热映</text>
+    <text class="willbe" bindtap="willbefilms" style="color:{{hotshowing?'#666;':'purple;'}} border-bottom: {{hotshowing?'none;':'1px purple solid;'}}">待映</text>
   </view>
    <view class="locate" bindtap="locate">
     <image class="locaicon" src="../../images/locate.png"></image>
-    <text class="location">{{city}}</text>
+    <text class="location">{{currentCity}}</text>
   </view>
  </view>
 
 <template name="showingfilmslist">
   <view class="filmInfo">
     <image class="filmPost" src="{{PostPath}}"></image>
-    <text> We r showing </text>
+    <text class='filmname'>{{filmname}} </text>
   </view>
 </template>
 <template name="willbefilmslist">
@@ -24,4 +24,4 @@
     <text> We will be show </text>
   </view>
 </template>
-<template is="{{ingorwillbelist}}"/>
+<template is="{{ingorwillbelist}}" data="{{...film}}"/>

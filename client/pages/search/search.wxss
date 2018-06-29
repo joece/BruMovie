@@ -3,7 +3,7 @@ page {
 }
 
 .search {
-  background-color: #d43e37;
+  background-color: #4D8CFD;
   height: 100rpx;
   display: flex;
   align-items: center;

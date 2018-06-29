@@ -9,14 +9,12 @@
     "pages/around/index",
     "pages/comment/index",
     "pages/login/index",
-    "pages/login/cinemalist",
     "pages/cinema/position/position",
-    "pages/search/indexsearch/indexsearch",
     "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "Brumovie",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F5F5F5",
