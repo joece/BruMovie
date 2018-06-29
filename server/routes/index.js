@@ -37,6 +37,7 @@ router.get('/province', controllers.db.getProvince)
 router.get('/city', controllers.db.getCity)
 router.get('/block', controllers.db.getBlock)
 router.post('/location', controllers.db.postLocation)
-router.get('./cinema', controllers.db.getCinema)
+router.get('/cinema', controllers.db.getCinema)
+router.get('/movie', controllers.db.getMovie)
 
 module.exports = router

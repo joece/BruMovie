@@ -182,4 +182,10 @@ CREATE TABLE `locationUserOrCinema` (
   `cinema_id` integer
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='locationUserOrCinema';
 
+DROP TABLE IF EXISTS `cinemaMovie`;
+CREATE TABLE `cinemaMovie` (
+  `cinema_id` integer NOT NULL,
+  `movie_id` integer NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='cinemaMovie';
+
 SET FOREIGN_KEY_CHECKS = 1;

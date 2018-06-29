@@ -84,11 +84,30 @@ async function getCinema(ctx, next) {
   }
 }
 
+async function getMovie(ctx, next) {
+  if (ctx.request.query.cinemaId) {
+    var result = await DB.raw('SELECT * FROM movie LEFT JOIN cinemaMovie ON movie.movie_id=cinemaMovie.movie_id WHERE cinema_id = ' + ctx.request.query.cinemaId).then((res) => {
+      return res
+    })
+  }
+  else {
+    var result = await DB.raw('SELECT * FROM movie').then((res) => {
+      return res
+    })
+  }
+  
+  ctx.state.data = {
+    resultCode: 0,
+    values: result[0]
+  }
+}
+
 module.exports = {
   dbtest, 
   getProvince,
   getCity,
   getBlock,
   postLocation,
-  getCinema
+  getCinema,
+  getMovie
 }

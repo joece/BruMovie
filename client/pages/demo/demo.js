@@ -118,12 +118,14 @@ Page({
       //url: 'https://k3d2hspl.qcloud.la/weapp/province',
       //url: 'https://k3d2hspl.qcloud.la/weapp/city?provinceId=44'
       //url: 'https://k3d2hspl.qcloud.la/weapp/block?provinceId=44&cityId=01',
-      url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
+      //url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
+      url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
       success(result) {
         wx.cc = result.data
         console.log(result.data)
       }
     })
+    /*
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/location',
       method: 'POST',
@@ -143,5 +145,6 @@ Page({
         //console.log(result.data.data)
       }
     })
+    */
   }
 })
