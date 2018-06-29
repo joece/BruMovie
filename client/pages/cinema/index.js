@@ -14,7 +14,19 @@ Page({
     page.setData({
       'head.currentCity': app.globalData.currentCity
     })
-
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
+      success: function (res) {
+        that.setData({
+          theater: res.data.data
+        })
+      }
+    })
+  },
+  onShow:function(){
+    this.setData({
+      'head.currentCity': app.globalData.currentCity
+    })
   }
 
 })
