@@ -64,7 +64,7 @@ App({
               typeof cityres == 'function' && cityres(page.globalData.currentCity)
             }
           })
-        },
+        }
       })
     },
     remind: function (onLoad) {

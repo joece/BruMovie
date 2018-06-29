@@ -7,7 +7,7 @@
       <view class="navigator-arrow"></view>
     </view>
   </navigator>
-  <navigator url="../search/search" class="search-rad" hover-class="none">
+  <navigator url="../search/search?for={{placestr}}" class="search-rad" hover-class="none">
     <icon type="search" size="13" style="margin-right:10rpx;"></icon>
     <view>{{placestr}}</view>
   </navigator>

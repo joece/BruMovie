@@ -11,7 +11,7 @@ Page({
   },
   search: function(){
     wx.navigateTo({
-      url: '../search/search',
+      url: '../search/search?for=找影视剧，艺人，影院',
     })
   },
 
