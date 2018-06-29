@@ -4,12 +4,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
-    aroundnumber: 2,
-    aroundprice: 10,
-    aroundtotal: 20,
-    aroundname: "爆米花",
-    aroundpost: "../../images/爆米花.jpg"
+    aroundorders: [
+      {
+        'cinema': '万达广场',
+        'aroundnumber': 2,
+        'aroundprice': 10,
+        'aroundname': "爆米花",
+        'aroundpost': "../../images/爆米花.jpg"
+      },
+      {
+        'cinema': '万达广场',
+        'aroundnumber': 12,
+        'aroundprice': 10,
+        'aroundname': "爆米花",
+        'aroundpost': "../../images/爆米花.jpg"
+      }
+    ]
   },
 
   showticketorder: function () {
