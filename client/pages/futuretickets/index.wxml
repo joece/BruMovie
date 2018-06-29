@@ -1,2 +1,15 @@
 <!--pages/futuretickets/index.wxml-->
-<text>pages/futuretickets/index.wxml</text>
+<view class="my_orders">
+  <view class="cinemaname">万达影城</view> 
+  <view class="rowflex">
+    <view class="order1" bindtap="showticketorder">
+      <image class="img1" src="{{postpath_ordered}}"></image>
+    </view>
+    <view class="order2" bindtap="showticketorder">
+      <text class="movie"> {{moviename}} </text>
+      <text class="time"> {{movietime}} </text>
+      <text class="chair"> {{chairnum}} </text>
+    </view>
+  </view>
+  <view class="total">总价: {{price}} 元</view>
+</view>
