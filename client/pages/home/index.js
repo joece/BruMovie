@@ -5,73 +5,7 @@ const app = getApp()
 Page({
   data: {
     films: {
-      'filmsli': [
-       { 'imgUrl': '../../images/就决定是你了.jpg',
-          'name': '动物世界2',
-          'id': '001',
-          'rating': '9.0分',
-          'type': '动作,科幻,冒险',
-          'kind': '3DMAX',
-          'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-          'cinemacounts': 999,
-          'times': 1231
-        },
-       {
-         'imgUrl': '../../images/就决定是你了.jpg',
-         'name': '动物世界2',
-         'id': '001',
-         'rating': '9.0分',
-         'type': '动作，科幻',
-         'kind': '3DMAX',
-         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-         'cinemacounts': 999,
-         'times': 1231
-       },
-       {
-         'imgUrl': '../../images/就决定是你了.jpg',
-         'name': '动物世界2',
-         'id': '001',
-         'rating': '9.0分',
-         'type': '动作，科幻',
-         'kind': '3DMAX',
-         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-         'cinemacounts': 999,
-         'times': 1231
-       }, 
-       {
-         'imgUrl': '../../images/就决定是你了.jpg',
-         'name': '动物世界2',
-         'id': '001',
-         'rating': '9.0分',
-         'type': '动作，科幻',
-         'kind': '3DMAX',
-         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-         'cinemacounts': 999,
-         'times': 1231
-       },
-       {
-         'imgUrl': '../../images/就决定是你了.jpg',
-         'name': '动物世界2',
-         'id': '001',
-         'rating': '9.0分',
-         'type': '动作,科幻,冒险',
-         'kind': '3DMAX',
-         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-         'cinemacounts': 999,
-         'times': 1231
-       }, 
-       {
-          'imgUrl': '../../images/就决定是你了.jpg',
-         'name': '动物世界2',
-         'id': '001',
-         'rating': '9.0分',
-         'type': '动作，科幻',
-         'kind': '3DMAX',
-         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
-         'cinemacounts': 999,
-         'times': 1231
-       }
-      ]
+      'filmsli': []
     },
     currentCity: '',
     ingorwillbelist: "showingfilmslist",
@@ -82,7 +16,13 @@ Page({
       url: '../search/search?for=找影视剧，艺人，影院',
     })
   },
-
+  showdetail: function(){
+    if(!gotobuy){
+      wx.navigateTo({
+        url: '../movies / detail / detail ? movie = {{item}}',
+      })
+    }
+  },
   showingfilms:function(){
     this.setData({
       ingorwillbelist:"showingfilmslist",
@@ -101,7 +41,17 @@ Page({
     })
   },
   onLoad: function () {
-   
+    var page = this
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
+      success: function (res) {
+        console.log(res)
+        page.setData({
+          films:{'filmsli': res.data.data.values}
+        })
+      }
+    })
+  
   },
 
   onShow: function(){

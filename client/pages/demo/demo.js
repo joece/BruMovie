@@ -121,6 +121,7 @@ Page({
       //url: 'https://k3d2hspl.qcloud.la/weapp/block?provinceId=44&cityId=01',
       //url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
       //url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
+      //url: 'https://k3d2hspl.qcloud.la/weapp/screening?cinemaId=0&movieId=0',
       //url: 'https://k3d2hspl.qcloud.la/weapp/movie',
       url: 'https://k3d2hspl.qcloud.la/weapp/item?cinema_id=0',
       success(result) {
