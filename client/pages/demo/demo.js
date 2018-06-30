@@ -114,20 +114,21 @@ Page({
   },
 
   click: function() {
-    /*
+    
     wx.request({
       //url: 'https://k3d2hspl.qcloud.la/weapp/province',
       //url: 'https://k3d2hspl.qcloud.la/weapp/city?provinceId=44'
       //url: 'https://k3d2hspl.qcloud.la/weapp/block?provinceId=44&cityId=01',
       //url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
       //url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
-      url: 'https://k3d2hspl.qcloud.la/weapp/movie',
+      //url: 'https://k3d2hspl.qcloud.la/weapp/movie',
+      url: 'https://k3d2hspl.qcloud.la/weapp/item?cinema_id=0',
       success(result) {
         wx.cc = result.data
         console.log(result.data)
       }
     })
-    */
+    
     /*
     // 添加location的post请求
     wx.request({
@@ -150,7 +151,7 @@ Page({
       }
     })
     */
-    
+    /*
     // 创建订单的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/order',
@@ -168,7 +169,8 @@ Page({
         console.log(result.data.data)
       }
     })
-    
+    */
+   /*
     //获取order的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/getOrder',
@@ -184,6 +186,8 @@ Page({
         console.log(result.data.data)
       }
     })
+    */
+   /*
     //删除order的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/delOrder',
@@ -200,5 +204,6 @@ Page({
         console.log(result.data.data)
       }
     })
+    */
   }
 })

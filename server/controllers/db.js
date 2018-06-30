@@ -198,7 +198,11 @@ async function payOrder(ctx, next) {
 }
 
 async function getItem(ctx, next) {
-
+  var result = await DB('item').select('*').where({cinema_id: ctx.request.query.cinema_id})
+  ctx.state.data = {
+    resultCode: 0,
+    values: result
+  }
 }
 
 module.exports = {
