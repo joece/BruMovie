@@ -46,8 +46,8 @@ router.post('/cancelTicket', controllers.db.cancelTicket)
 router.get('/ticket', controllers.db.getTicket)
 router.get('/item', controllers.db.getItem)
 router.post('/order', controllers.db.postOrder)
-router.get('/order', controllers.db.getOrder)
-router.del('/order', controllers.db.deleteOrder)
+router.post('/getOrder', controllers.db.getOrder)
+router.post('/delOrder', controllers.db.deleteOrder)
 router.post('/pay', controllers.db.payOrder)
 
 module.exports = router

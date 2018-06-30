@@ -112,7 +112,7 @@ async function getScreening(ctx, next) {
   }
 }
 
-async function getSest(ctx, next) {
+async function getSeat(ctx, next) {
   var result = await DB.raw('SELECT * FROM seat WHERE cinema_id = ' + ctx.request.query.cinemaId + ' AND movie_id = ' + ctx.request.query.movieId + ' AND screening_id = ' + ctx.request.query.screeningId).then((res) => {
     return res
   })
@@ -126,58 +126,57 @@ async function postOrder(ctx, next) {
   // tickets
   // items
   const body = ctx.request.body
-  var result = await DB.raw('SELECT * FROM order').then((res) => {
-    return res
-  })
-  var count = result[0].length
-  var skey = body.skey
-  var userInfo = await AuthDbService.getUserInfoBySKey(skey).then((res) => { return res })
+  var userInfo = await AuthDbService.getUserInfoBySKey(body.skey).then((res) => { return res })
   if (userInfo.length < 1) {
     return
   }
-  result = await DB.raw('INSERT INTO `order` (`order_id`, `open_id`, `state`, `create_time`, `totalPrice`, `note`) VALUES(' + count + ',"' + userInfo[0].open_id + '",' + '0' + ',' + moment().format('YYYY-MM-DD HH:mm:ss') + ',' + body.price + ',"' + body.note + '")').then((res) => {
-    return res
+  var orders = await DB('order').select('*').orderBy('order_id', 'desc')
+  var order_id
+  if (orders.length <= 0) {
+    order_id = 0
+  }
+  else {
+    orders[0].order_id + 1
+  }
+  var open_id = userInfo[0].open_id,
+      state = 0,
+      create_time = moment().format('YYYY-MM-DD HH:mm:ss'),
+      totalPrice = body.price,
+      note = 'test'
+  result = await DB('order').insert({
+    order_id, open_id, state, create_time, totalPrice, note
   })
-  /*
-  result = await DB.raw('INSERT INTO `locationUserOrCinema` (`location_id`,`type`,`open_id`,`cinema_id`) VALUES(' + count + ',0,"' + userInfo[0].open_id + '",NULL)').then((res) => {
-    return res
-  })
-  */
-  ctx.body.resultCode = 0
+  ctx.state.data = {
+    resultCode: 0,
+    order_id: order_id
+  }
 }
 
 async function getOrder(ctx, next) {
   const body = ctx.request.body
-  var skey = body.skey
-  var userInfo = await AuthDbService.getUserInfoBySKey(skey).then((res) => { return res })
+  var userInfo = await AuthDbService.getUserInfoBySKey(body.skey).then((res) => { return res })
   var open_id = userInfo[0].open_id
   if (userInfo.length < 1) {
     return
   }
-  var result = await DB.raw('SELECT * FROM order LEFT JOIN ticketOrder ON order.order_id=ticketOrder.order_id LEFT JOIN ticket ON ticketOrder.ticket_id=ticket.ticket_id WHERE open_id = ' + open_id).then((res) => {
-    return res
-  })
+  var result = await DB('order').select('*').where({open_id: open_id})
   ctx.state.data = {
     resultCode: 0,
-    values: result[0]
+    values: result
   }
 }
 
-async function deletetOrder(ctx, next) {
+async function deleteOrder(ctx, next) {
   const body = ctx.request.body
-  var skey = body.skey
-  var userInfo = await AuthDbService.getUserInfoBySKey(skey).then((res) => { return res })
+  var userInfo = await AuthDbService.getUserInfoBySKey(body.skey).then((res) => { return res })
   var open_id = userInfo[0].open_id
   var order_id = body.order_id
   if (userInfo.length < 1) {
     return
   }
-  var result = await DB.raw('DELETE FROM order LEFT JOIN ticketOrder ON order.order_id=ticketOrder.order_id LEFT JOIN ticket ON ticketOrder.ticket_id=ticket.ticket_id WHERE order_id = ' + order_id + ' AND open_id = ' + open_id).then((res) => {
-    return res
-  })
+  var result = await DB('order').where({order_id: order_id, open_id: open_id}).del()
   ctx.state.data = {
     resultCode: 0,
-    values: result[0]
   }
 }
 
@@ -187,7 +186,7 @@ async function createTicket(ctx, next) {
 }
 
 async function cancelTicket(ctx, next) {
-  
+
 }
 
 async function getTicket(ctx, next) {
@@ -195,11 +194,11 @@ async function getTicket(ctx, next) {
 }
 
 async function payOrder(ctx, next) {
-  
+
 }
 
 async function getItem(ctx, next) {
-  
+
 }
 
 module.exports = {
@@ -211,13 +210,13 @@ module.exports = {
   getCinema,
   getMovie,
   getScreening,
-  getSest,
+  getSeat,
   createTicket,
   cancelTicket,
   getTicket,
   getItem,
   postOrder,
   getOrder,
-  deletetOrder,
+  deleteOrder,
   payOrder
 }

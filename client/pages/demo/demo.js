@@ -114,6 +114,7 @@ Page({
   },
 
   click: function() {
+    /*
     wx.request({
       //url: 'https://k3d2hspl.qcloud.la/weapp/province',
       //url: 'https://k3d2hspl.qcloud.la/weapp/city?provinceId=44'
@@ -126,6 +127,7 @@ Page({
         console.log(result.data)
       }
     })
+    */
     /*
     // 添加location的post请求
     wx.request({
@@ -167,5 +169,36 @@ Page({
       }
     })
     
+    //获取order的post请求
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/getOrder',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A')
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+      }
+    })
+    //删除order的post请求
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/delOrder',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+        order_id: 0
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+      }
+    })
   }
 })
