@@ -5,7 +5,7 @@
       <icon type="search" size="14"></icon>
       <input class="input" placeholder="{{search.placeholder}}" placeholder-class="placeholderclass" bindinput="searchinput" />
     </view>
-    <navigator url="../movies/index" class="cancel" open-type="switchTab">取消</navigator>
+    <navigator class="cancel" open-type="navigateBack">取消</navigator>
   </view>
   
   <view class="history" wx:if="{{!theater.length}}">

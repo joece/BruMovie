@@ -44,12 +44,37 @@ page{
   padding-bottom: 4px;
 }
 .filmInfo{
-  width: 168px;
-  height: 200px;
+  width: 156px;
+  height: 212px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin: 16px 0 0 16px;
+  background-color: white;
 }
 .filmPost{
-  width: 160px;
-  height: 80px;
+  padding: 8px;
+  width: 90px;
+  height: 128px;
+}
+.actors{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  font-size: 24rpx;
+}
+
+.buy-nav {
+  width: 90rpx;
+  height: 54rpx;
+  border: 1rpx solid #f34f39;
+  color: #f34f39;
+  border-radius: 8rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.pre {
+  border: 1rpx solid #12a2f1;
+  color: #12a2f1;
 }

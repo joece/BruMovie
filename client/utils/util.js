@@ -65,5 +65,5 @@ var showModel = (title, content) => {
 
 
 module.exports = {
-  formatTime, showBusy, showSuccess, showModel
+  formatTime, getWeek, showBusy, showSuccess, showModel
 }

@@ -12,8 +12,8 @@
     "pages/cinema/position/position",
     "pages/search/search",
     "pages/qrcode/qrcode",
-    "pages/movies/detail/detail"
-
+    "pages/movies/detail/detail",
+    "pages/cinemalist/cinemalist"
   ],
   "window": {
     "backgroundTextStyle": "light",

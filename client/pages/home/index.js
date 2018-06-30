@@ -4,7 +4,75 @@ const app = getApp()
 
 Page({
   data: {
-    film: { PostPath:'', filmname:"小编是傻逼"},
+    films: {
+      'filmsli': [
+       { 'imgUrl': '../../images/就决定是你了.jpg',
+          'name': '动物世界2',
+          'id': '001',
+          'rating': '9.0分',
+          'type': '动作,科幻,冒险',
+          'kind': '3DMAX',
+          'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+          'cinemacounts': 999,
+          'times': 1231
+        },
+       {
+         'imgUrl': '../../images/就决定是你了.jpg',
+         'name': '动物世界2',
+         'id': '001',
+         'rating': '9.0分',
+         'type': '动作，科幻',
+         'kind': '3DMAX',
+         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+         'cinemacounts': 999,
+         'times': 1231
+       },
+       {
+         'imgUrl': '../../images/就决定是你了.jpg',
+         'name': '动物世界2',
+         'id': '001',
+         'rating': '9.0分',
+         'type': '动作，科幻',
+         'kind': '3DMAX',
+         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+         'cinemacounts': 999,
+         'times': 1231
+       }, 
+       {
+         'imgUrl': '../../images/就决定是你了.jpg',
+         'name': '动物世界2',
+         'id': '001',
+         'rating': '9.0分',
+         'type': '动作，科幻',
+         'kind': '3DMAX',
+         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+         'cinemacounts': 999,
+         'times': 1231
+       },
+       {
+         'imgUrl': '../../images/就决定是你了.jpg',
+         'name': '动物世界2',
+         'id': '001',
+         'rating': '9.0分',
+         'type': '动作,科幻,冒险',
+         'kind': '3DMAX',
+         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+         'cinemacounts': 999,
+         'times': 1231
+       }, 
+       {
+          'imgUrl': '../../images/就决定是你了.jpg',
+         'name': '动物世界2',
+         'id': '001',
+         'rating': '9.0分',
+         'type': '动作，科幻',
+         'kind': '3DMAX',
+         'actors': 'bianzetong,zgt,sb,sbsb,路人甲',
+         'cinemacounts': 999,
+         'times': 1231
+       }
+      ]
+    },
     currentCity: '',
     ingorwillbelist: "showingfilmslist",
     hotshowing:true
