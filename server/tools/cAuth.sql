@@ -72,7 +72,14 @@ CREATE TABLE `movie` (
   `movie_id` integer NOT NULL , 
   `movie_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `movie_des` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `movie_star` integer NOT NULL,
+  `movie_star` float NOT NULL,
+  `type` varchar(100),
+  `support` varchar(100),
+  `actors` varchar(100),
+  `cinemacounts` integer,
+  `times` integer,
+  `state` integer,
+  `markcount` integer,
   `movie_img_url` varchar(200),
   PRIMARY KEY (`movie_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='movie';
