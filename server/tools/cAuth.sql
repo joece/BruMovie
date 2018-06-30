@@ -102,6 +102,7 @@ CREATE TABLE `seat` (
   `seat_id` integer NOT NULL,
   `row` integer NOT NULL, 
   `col` integer NOT NULL,
+  `state` integer NOT NULL,
   PRIMARY KEY (`screening_id`, `cinema_id`, `movie_id`, `seat_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='seat';
 
@@ -181,5 +182,11 @@ CREATE TABLE `locationUserOrCinema` (
   `open_id` varchar(100) COLLATE utf8mb4_unicode_ci,
   `cinema_id` integer
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='locationUserOrCinema';
+
+DROP TABLE IF EXISTS `cinemaMovie`;
+CREATE TABLE `cinemaMovie` (
+  `cinema_id` integer NOT NULL,
+  `movie_id` integer NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='cinemaMovie';
 
 SET FOREIGN_KEY_CHECKS = 1;
