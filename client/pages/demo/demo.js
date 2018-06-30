@@ -114,20 +114,21 @@ Page({
   },
 
   click: function() {
-    /*
+    
     wx.request({
       //url: 'https://k3d2hspl.qcloud.la/weapp/province',
       //url: 'https://k3d2hspl.qcloud.la/weapp/city?provinceId=44'
       //url: 'https://k3d2hspl.qcloud.la/weapp/block?provinceId=44&cityId=01',
       //url: 'https://k3d2hspl.qcloud.la/weapp/cinema?provinceId=44&cityId=1&blockId=13',
       //url: 'https://k3d2hspl.qcloud.la/weapp/movie?cinemaId=0',
-      url: 'https://k3d2hspl.qcloud.la/weapp/movie',
+      //url: 'https://k3d2hspl.qcloud.la/weapp/movie',
+      url: 'https://k3d2hspl.qcloud.la/weapp/item?cinema_id=0',
       success(result) {
         wx.cc = result.data
         console.log(result.data)
       }
     })
-    */
+    
     /*
     // 添加location的post请求
     wx.request({
@@ -150,7 +151,7 @@ Page({
       }
     })
     */
-    
+
     // 创建订单的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/order',
@@ -161,14 +162,17 @@ Page({
       data: {
         skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
         price: 100,
-        note: ''
+        note: 'test',
+        tickets: JSON.stringify([{ ticket_id: 0 }, { ticket_id: 1 }]),
+        items: JSON.stringify([{ item_id: 0 }, { item_id: 1 }]),
       },
       success(result) {
         wx.pc = result.data
         console.log(result.data.data)
       }
     })
-    
+
+   /*
     //获取order的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/getOrder',
@@ -184,6 +188,8 @@ Page({
         console.log(result.data.data)
       }
     })
+    */
+   /*
     //删除order的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/delOrder',
@@ -200,5 +206,44 @@ Page({
         console.log(result.data.data)
       }
     })
+    */
+
+    // //锁定ticket
+    // wx.request({
+    //   url: 'https://k3d2hspl.qcloud.la/weapp/createTicket',
+    //   method: 'POST',
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: {
+    //     skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+    //     cinema_id: 0,
+    //     movie_id: 0,
+    //     screening_id: 0,
+    //     seat_id: 0,
+    //     price: 100
+    //   },
+    //   success(result) {
+    //     wx.pc = result.data
+    //     console.log(result.data.data)
+    //   }
+    // })
+
+    // //取消锁定票
+    // wx.request({
+    //   url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
+    //   method: 'POST',
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: {
+    //     skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+    //     ticket_id: 0
+    //   },
+    //   success(result) {
+    //     wx.pc = result.data
+    //     console.log(result.data.data)
+    //   }
+    // })
   }
 })

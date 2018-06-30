@@ -59,7 +59,8 @@ CREATE TABLE `cinema` (
   `cinema_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cinema_phone` varchar(13) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cinema_des` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cinema_star` integer NOT NULL,
+  `cinema_star` float NOT NULL,
+  `lowest_price` float NOT NULL,
   `longitude` float NOT NULL,
   `latitude` float NOT NULL,
   `cinema_img_url` varchar(200),
@@ -114,6 +115,7 @@ CREATE TABLE `ticket` (
   `screening_id` integer NOT NULL, 
   `seat_id` integer NOT NULL,
   `price` float NOT NULL,
+  `open_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ticket_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ticket';
 
@@ -145,7 +147,7 @@ CREATE TABLE `order` (
   `open_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` integer NOT NULL, 
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `totalPrice` integer NOT NULL, 
+  `totalPrice` float NOT NULL, 
   `note` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='order';
