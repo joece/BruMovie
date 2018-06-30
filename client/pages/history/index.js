@@ -4,9 +4,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movietime_saw: "05月02日 13:00",
-    moviename_saw: "精灵宝可梦：就决定是你了",
-    postpath_saw: "../../images/就决定是你了.jpg"
+    allorders:[
+      {
+        movietime_saw: "05月02日 13:00",
+        moviename_saw: "精灵宝可梦：就决定是你了",
+        postpath_saw: "../../images/就决定是你了.jpg"},
+      {
+        movietime_saw: "05月03日 13:00",
+        moviename_saw: "精灵宝可梦：不是我",
+        postpath_saw: "../../images/就决定是你了.jpg"
+      }
+
+    ]
+    
   },
 
   showticketorder: function () {
