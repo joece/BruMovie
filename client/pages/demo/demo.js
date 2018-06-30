@@ -205,5 +205,43 @@ Page({
       }
     })
     */
+
+    // //锁定ticket
+    // wx.request({
+    //   url: 'https://k3d2hspl.qcloud.la/weapp/createTicket',
+    //   method: 'POST',
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: {
+    //     skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+    //     cinema_id: 0,
+    //     movie_id: 0,
+    //     screening_id: 0,
+    //     seat_id: 0,
+    //     price: 100
+    //   },
+    //   success(result) {
+    //     wx.pc = result.data
+    //     console.log(result.data.data)
+    //   }
+    // })
+
+    //取消锁定票
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+        ticket_id: 0
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+      }
+    })
   }
 })
