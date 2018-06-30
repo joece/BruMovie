@@ -142,10 +142,26 @@ async function postOrder(ctx, next) {
     state = 0,
     create_time = moment().format('YYYY-MM-DD HH:mm:ss'),
     totalPrice = body.price,
-    note = 'test'
+    note = body.note
   result = await DB('order').insert({
     order_id, open_id, state, create_time, totalPrice, note
   })
+
+  //开始关联order和票 
+  var tickets = JSON.parse(body.tickets)
+  for (var ticket of tickets) {
+    var ticket_id = ticket.ticket_id
+    var result = await DB('ticketOrder').insert({
+      ticket_id, order_id
+    })
+  }
+  var items = JSON.parse(body.items)
+  for (let item of items) {
+    let item_id = item.item_id
+    var result = await DB('itemOrder').insert({
+      item_id, order_id
+    })
+  }
   ctx.state.data = {
     resultCode: 0,
     order_id: order_id

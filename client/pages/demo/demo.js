@@ -151,7 +151,7 @@ Page({
       }
     })
     */
-    /*
+
     // 创建订单的post请求
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/order',
@@ -162,14 +162,16 @@ Page({
       data: {
         skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
         price: 100,
-        note: ''
+        note: 'test',
+        tickets: JSON.stringify([{ ticket_id: 0 }, { ticket_id: 1 }]),
+        items: JSON.stringify([{ item_id: 0 }, { item_id: 1 }]),
       },
       success(result) {
         wx.pc = result.data
         console.log(result.data.data)
       }
     })
-    */
+
    /*
     //获取order的post请求
     wx.request({
@@ -227,21 +229,21 @@ Page({
     //   }
     // })
 
-    //取消锁定票
-    wx.request({
-      url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
-        ticket_id: 0
-      },
-      success(result) {
-        wx.pc = result.data
-        console.log(result.data.data)
-      }
-    })
+    // //取消锁定票
+    // wx.request({
+    //   url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
+    //   method: 'POST',
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: {
+    //     skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+    //     ticket_id: 0
+    //   },
+    //   success(result) {
+    //     wx.pc = result.data
+    //     console.log(result.data.data)
+    //   }
+    // })
   }
 })
