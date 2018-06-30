@@ -1,2 +1,16 @@
 <!--pages/around/index.wxml-->
-<text>pages/around/index.wxml</text>
+<view wx:for="{{aroundorders}}" class="my_orders">
+  <view class="cinemaname">{{item.cinema}}</view> 
+  <view class="rowflex">
+    <view class="order1" bindtap="showticketorder">
+      <image class="img1" src="{{item.aroundpost}}"></image>
+    </view>
+    <view class="order2" bindtap="showticketorder">
+      <text class="around">名称： {{item.aroundname}} </text>
+      <text class="price">单价： {{item.aroundprice}} 元</text>
+      <text class="number">数量： {{item.aroundnumber}} 件</text>
+    </view>
+  </view>
+  <view class="total">总价: {{item.aroundprice * item.aroundnumber}} 元</view>
+</view>
+

@@ -33,8 +33,7 @@ Page({
     })
   },
   onLoad: function () {
-    
-  
+   
   },
 
   onShow: function(){
@@ -43,7 +42,7 @@ Page({
       scope: 'scope.userLocation',
       success(res) {
         console.log('允许获取用户位置')
-        if(page.data.currentCity == ''){
+        if(app.globalData.currentCity == ''){
           app.getPos(
             function (currentCity) {
               page.setData({
@@ -51,12 +50,18 @@ Page({
               })
             }
           )
-        }  
+        } 
+        else
+          page.setData({
+            currentCity: app.globalData.currentCity
+          }) 
       },
       fail() {
         console.log('拒绝获取用户位置')
       }
     })
+    console.log(app.globalData.currentCity)
   }
+
   
 })

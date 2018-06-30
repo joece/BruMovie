@@ -1,1 +1,68 @@
 /* pages/history/index.wxss */
+page{
+  background-color: #F5f5f5;
+}
+.container {
+  padding: 22px 0px;
+  background-color: #4D8CFD;
+  height: 145px;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #fff;
+}
+.my_orders{
+  background-color: #fff;
+  height: 133px;
+  margin-top: 9px;
+  padding-top: 9px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.cinemaname{
+  padding-left: 17px;
+}
+.rowflex{
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 14px;
+  padding-bottom: 32px;
+}
+.img1{
+  width: 57px;
+  height: 84px;
+  padding-left: 25px;
+}
+.order1{
+  width: 90px;
+  height: 100px;
+}
+.order2{
+  width: 200px;
+  height: 100px;
+  display:flex;
+  flex-direction: column; 
+}
+.movie{
+  padding-left: 17px;
+}
+.time{
+  padding-left: 17px;
+}
+.chair{
+  padding-left: 17px;
+}
+.total{
+  padding-left: 17px;
+}
