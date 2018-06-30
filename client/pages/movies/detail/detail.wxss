@@ -208,7 +208,7 @@ page {
 }
 
 .buy {
-  background-color: #ef4238;
+  background-color: #4D8CFD;
   position: fixed;
   bottom: 0;
   width: 100%;
