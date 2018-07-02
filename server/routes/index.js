@@ -48,5 +48,6 @@ router.post('/order', controllers.order.create)
 router.post('/getOrder', controllers.order.get)
 router.post('/delOrder', controllers.order.del)
 router.post('/pay', controllers.order.pay)
+router.get('/addSeats', controllers.addSeats.get)
 
 module.exports = router
