@@ -22,8 +22,8 @@
             <text class='rating' style='color:'>{{item.movie_star}} 分</text>
             <text class='filmType'>{{item.type}}</text>
             <view class='filmkind'>{{item.support}}</view>
-            <navigator url="../cinemalist/cinemalist" class="buy-nav" wx:if="{{item.state==1}}">购票</navigator>
-            <navigator url="../cinemalist/cinemalist" class="buy-nav pre" wx:else>预售</navigator>
+            <navigator url="../cinemalist/cinemalist" catchtap='handletap' class="buy-nav" wx:if="{{item.state==1}}">购票</navigator>
+            <navigator url="../cinemalist/cinemalist" catchtap='handletap' class="buy-nav pre" wx:else>预售</navigator>
           </view>
         </view>
         <view style='display:flex; flex-direction: column; margin-left: 5px;'>
