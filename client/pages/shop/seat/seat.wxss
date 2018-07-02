@@ -187,6 +187,7 @@
   margin-right: 10rpx;
   padding-left: 8rpx;
   align-items: center;
+  font-size: 18rpx;
 }
 
 .confirm {

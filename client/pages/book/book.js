@@ -5,20 +5,16 @@ Page({
     
 
   },
-
-
-
-  onReady: function () {
-    // 页面渲染完成
-  },
-  onShow: function () {
-
-   
-  },
-  onHide: function () {
-    // 页面隐藏
-  },
-  onUnload: function () {
-    // 页面关闭
+  confirmPay: function(){
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: '',
+      paySign: '',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

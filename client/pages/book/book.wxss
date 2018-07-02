@@ -1,1 +1,54 @@
 /* pages/book/book.wxss */
+page{
+  background-color: #F5f5f5;
+}
+.ticketinfo{
+  width:100%;
+  height: 320rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx #b2b2b2 solid;
+}
+.filmInfo{
+  padding: 9px;
+  margin-left: 12px;
+  font-size: 14px;
+  border-bottom: 1rpx #b2b2b2 solid;
+  display: flex;
+  flex-direction: column;
+}
+.time{
+  color: purple;
+  padding-top: 9rpx;
+  padding-bottom: 9rpx;
+}
+.cost{
+  font-size: 14rpx;
+  color: #a1a1a1;
+  margin: 12rpx 12rpx;
+}
+.discount{
+  margin-top: 9px;
+  padding: 9px;
+  background-color: white;
+  border-top: 1rpx #b2b2b2 solid;
+  border-bottom: 1rpx #b2b2b2 solid;
+  height: 32px;
+}
+.confirmbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200rpx;
+}
+.paybtn{
+  margin-top: 9px;
+  padding: 2px;
+  background-color: #4D8CFD;
+  text-align: center;
+  color: white;
+  width: 240px;
+  height: 32px;
+  border-radius: 5px;
+}
