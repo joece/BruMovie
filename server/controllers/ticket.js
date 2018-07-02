@@ -13,11 +13,13 @@ module.exports = {
         var cinema_id = body.cinemaId,
             movie_id = body.movieId,
             screening_id = body.screeningId,
-            seat_id = body.seatId,
+            //seat_id = body.seatId,
+            col = body.col,
+            row = body.row,
             price = body.price
         // create(open)
         var result = await DB('seat').select('*').where({
-            cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, seat_id: seat_id
+            cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, row: row, col: col
         })
         if (result.length <= 0) {
             ctx.state.data = {
@@ -33,7 +35,7 @@ module.exports = {
         }
         else {
             result = await DB('seat').where({
-                cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, seat_id: seat_id
+                cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, row: row, col: col
             }).update({ state: 1 })
             var ticiets = await DB('ticket').select('*').orderBy('ticket_id', 'desc')
             var ticket_id
