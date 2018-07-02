@@ -13,13 +13,13 @@ module.exports = {
         var cinema_id = body.cinemaId,
             movie_id = body.movieId,
             screening_id = body.screeningId,
-            //seat_id = body.seatId,
+            room_id = body.roomId,
             col = body.col,
             row = body.row,
             price = body.price
         // create(open)
         var result = await DB('seat').select('*').where({
-            cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, row: row, col: col
+            cinema_id: cinema_id, room_id: room_id, screening_id: screening_id, row: row, col: col
         })
         if (result.length <= 0) {
             ctx.state.data = {
@@ -35,7 +35,7 @@ module.exports = {
         }
         else {
             result = await DB('seat').where({
-                cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, row: row, col: col
+                cinema_id: cinema_id, room_id: room_id, screening_id: screening_id, row: row, col: col
             }).update({ state: 1 })
             var ticiets = await DB('ticket').select('*').orderBy('ticket_id', 'desc')
             var ticket_id
@@ -46,7 +46,7 @@ module.exports = {
                 ticket_id = ticiets[0].ticket_id + 1
             }
             result = await DB('ticket').insert({
-                ticket_id, cinema_id, movie_id, screening_id, seat_id, price, open_id
+                ticket_id, cinema_id, movie_id, screening_id, room_id, row,col, price, open_id
             })
             ctx.state.data = {
                 resultCode: 0,
@@ -76,9 +76,11 @@ module.exports = {
                 cinema_id = ticket.cinema_id,
                 movie_id = ticket.movie_id,
                 screening_id = ticket.screening_id,
-                seat_id = ticket.seat_id
+                room_id = ticket.room_id,
+                row = ticket.row,
+                col = ticket.col
             result = await DB('seat').where({
-                cinema_id: cinema_id, movie_id: movie_id, screening_id: screening_id, seat_id: seat_id
+                cinema_id: cinema_id, screening_id: screening_id, room_id: room_id, row: row, col: col
             }).update({ state: 0 })
             ctx.state.data = {
                 resultCode: 0,
