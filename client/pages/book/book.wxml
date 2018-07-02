@@ -1,2 +1,30 @@
 <!--pages/book/book.wxml-->
-<text>pages/book/book.wxml</text>
+<view class='ticketinfo'>
+  <view class='filmInfo'>
+    <text class='filmname' style='font-size:18px;'>动物世界</text>
+    <text class='time'>今天07-02 22:40</text>
+    <view class='address'>
+      <text class='cinema'>万达影院（万胜围店）</text>
+      <text class='room'>1号厅</text>
+    </view>
+    <view class='seats' style='padding:3px;'>6排12座</view>
+  </view>
+  <view class='cost'>
+    <text style='font-size:16px; color: #a1a1a1; margin-left:12px;'>票价</text>
+    <text style='font-size:13px; color: #a1a1a1; margin-left:188px;'>含服务费3元/张</text>
+    <text style='font-size:13px; color: #ef4238; margin-left: 5px;'>9.9元</text>
+  </view>
+</view>
+
+<navigator class='discount'>
+  <text style='font-size:16px; color: #a1a1a1; margin-left:6px;'>活动与优惠券</text>
+  <text style='font-size:16px; margin-left:200px;'>无可用</text>
+</navigator>
+
+<view class='confirmbar'>
+  <view>
+    <text style='font-size:13px;'>还需支付：</text>
+    <text style='font-size:14px; color: #ef4238; '>9.9元</text>
+  </view>
+  <view class='paybtn' bindtap='confirmPay'>确认支付</view>
+</view>
