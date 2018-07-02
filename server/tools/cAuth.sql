@@ -99,6 +99,9 @@ CREATE TABLE `screening` (
   `movie_id` integer NOT NULL, 
   `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `end_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `showing_room` integer,
+  `price` float,
+  `date_to_now` integer,
   PRIMARY KEY (`screening_id`, `cinema_id`, `movie_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='screening';
 
@@ -106,12 +109,11 @@ DROP TABLE IF EXISTS `seat`;
 CREATE TABLE `seat` (
   `screening_id` integer NOT NULL,
   `cinema_id` integer NOT NULL , 
-  `movie_id` integer NOT NULL, 
-  `seat_id` integer NOT NULL,
+  `room_id` integer NOT NULL,
   `row` integer NOT NULL, 
   `col` integer NOT NULL,
   `state` integer NOT NULL,
-  PRIMARY KEY (`screening_id`, `cinema_id`, `movie_id`, `seat_id`)
+  PRIMARY KEY (`screening_id`, `cinema_id`, `room_id`, `row`, `col`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='seat';
 
 DROP TABLE IF EXISTS `ticket`;
@@ -120,11 +122,23 @@ CREATE TABLE `ticket` (
   `cinema_id` integer NOT NULL , 
   `movie_id` integer NOT NULL,
   `screening_id` integer NOT NULL, 
-  `seat_id` integer NOT NULL,
+  `room_id` integer NOT NULL,
+  `row` integer NOT NULL,
+  `col` integer NOT NULL,
   `price` float NOT NULL,
   `open_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ticket_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ticket';
+
+DROP TABLE IF EXISTS `showingRoomSeats`;
+CREATE TABLE `showingRoomSeats` (
+  `room_id` integer NOT NULL, 
+  `cinema_id` integer NOT NULL , 
+  `row` integer NOT NULL,
+  `col` integer NOT NULL,
+  `state` integer NOT NULL,
+  PRIMARY KEY (`cinema_id`, `room_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='showingRoomSeats';
 
 DROP TABLE IF EXISTS `ticketOrder`;
 CREATE TABLE `ticketOrder` (
