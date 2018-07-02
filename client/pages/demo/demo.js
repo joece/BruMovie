@@ -224,7 +224,9 @@ Page({
     //     cinemaId: 0,
     //     movieId: 0,
     //     screeningId: 0,
-    //     seatId: 0,
+    //     roomId: 1,
+    //     col: 0,
+    //     row: 1,
     //     price: 100
     //   },
     //   success(result) {
@@ -233,22 +235,22 @@ Page({
     //   }
     // })
 
-    // //取消锁定票
-    // wx.request({
-    //   url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
-    //   method: 'POST',
-    //   header: {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   data: {
-    //     skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
-    //     ticketId: 0
-    //   },
-    //   success(result) {
-    //     wx.pc = result.data
-    //     console.log(result.data.data)
-    //   }
-    // })
+    //取消锁定票
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/cancelTicket',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+        ticketId: 0
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+      }
+    })
 
     // //获取一个订单中的票
     // wx.request({
