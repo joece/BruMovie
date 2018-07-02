@@ -104,5 +104,5 @@
   </view>
   <navigator url=""></navigator>
 </view>
-<navigator url="../../cinemalist/cinemalist?title={{des.title}}&id={{des.id}}" class="buy">优惠购票</navigator>
+<navigator url="../../cinemalist/cinemalist?movie={{des}}" class="buy">优惠购票</navigator>
 <view style="height:100px;"></view>

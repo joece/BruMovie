@@ -14,20 +14,20 @@
 
 <template name="showingfilmslist">
   <block wx:for='{{filmsli}}'>
-    <navigator url='../movies/detail/detail?name={{item.name}}&id={{item.id}}'>
+    <navigator url='../movies/detail/detail?movie={{item}}'>
       <view class="filmInfo">
         <view style='display:flex; flex-direction: row;'>
-          <image class="filmPost" src="{{item.imgUrl}}"></image>
+          <image class="filmPost" src="{{item.movie_img_url}}"></image>
           <view style='display:flex; flex-direction: column; font-size: 24rpx;'>
-            <text class='rating' style='color:'>{{item.rating}}</text>
+            <text class='rating' style='color:'>{{item.movie_star}} 分</text>
             <text class='filmType'>{{item.type}}</text>
-            <view class='filmkind'>{{item.kind}}</view>
-            <navigator url="../cinemalist/cinemalist" class="buy-nav" wx:if="{{item.onsale}}">购票</navigator>
-            <navigator url="../cinemalist/cinemalist" class="buy-nav pre" wx:else>预售</navigator>
+            <view class='filmkind'>{{item.support}}</view>
+            <navigator url="../cinemalist/cinemalist" catchtap='handletap' class="buy-nav" wx:if="{{item.state==1}}">购票</navigator>
+            <navigator url="../cinemalist/cinemalist" catchtap='handletap' class="buy-nav pre" wx:else>预售</navigator>
           </view>
         </view>
         <view style='display:flex; flex-direction: column; margin-left: 5px;'>
-          <text class='filmName'>{{item.name}}</text>
+          <text class='filmName'>{{item.movie_name}}</text>
           <text class='actors'>主演：{{item.actors}}</text>
           <text style="font-size:24rpx; color:#A3A3A3;">今天{{item.cinemacounts}}家影院放映{{item.times}}场</text>
         </view>

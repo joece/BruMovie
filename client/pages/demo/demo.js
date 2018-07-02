@@ -126,6 +126,7 @@ Page({
       // url: 'https://k3d2hspl.qcloud.la/weapp/screening?movieId=0&cinemaId=0',
       // url: 'https://k3d2hspl.qcloud.la/weapp/seat?movieId=0&cinemaId=0&screeningId=0',
       url: 'https://k3d2hspl.qcloud.la/weapp/item?cinemaId=0',
+
       success(result) {
         wx.cc = result.data
         console.log(result.data)

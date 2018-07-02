@@ -13,6 +13,9 @@
     "pages/search/search",
     "pages/qrcode/qrcode",
     "pages/movies/detail/detail",
+    "pages/shop/shop",
+    "pages/shop/seat/seat",
+    "pages/book/book",
     "pages/cinemalist/cinemalist"
   ],
   "window": {
