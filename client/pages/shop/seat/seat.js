@@ -6,36 +6,48 @@ function formatNumber(n) {
 }
 Page({
   data: {
-    shop: {},
+    roomInfo: {},
     map: [],
+    seats: [],
     willChange: false,
     hasSelected: false,
+    deltaX: 0,
+    deltaY: 0,
+    columnArr: []
   },
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://localhost:8888/data/seatdata?data=' + options.shop,
+      url: 'https://k3d2hspl.qcloud.la/weapp/seat?movieId=0&cinemaId=0&screeningId=0',
       data: {},
-      method: 'GET',
       success: function (res) {
-        var shop = res.data.data
-        console.log(res.data)
+        var resVal = res.data.data.values[0]
+        var info = { resVal, 'showing_room': options.room, 'price': options.price }
+        console.log(info)
         that.setData({
-          shop: shop,
-          map: shop.seat
+          roomInfo: info
         })
       }
     })
   },
   onReady: function () {
+    var roomInfo = this.data.roomInfo.resVal
     var columnArr = []
-    var map = this.data.map
-    for (var i = 1; i <= map.length; i++) {
+    var seatmap = []
+    var index = 0
+    for (var i = 1; i <= roomInfo.row; i++) {
       columnArr.push(i)
+      var rowmap = []
+      for(var j = 1; j <= roomInfo.col; j++, index++){
+        rowmap.push(parseInt(roomInfo.state[index]))
+      }
+      seatmap.push(rowmap)
     }
     this.setData({
-      columnArr: columnArr
+      columnArr: columnArr,
+      map: seatmap
     })
+    
   },
   onShow: function () {
   },
@@ -71,8 +83,7 @@ Page({
     var map = this.data.map
     var seats = []
     var cStr = ''
-    limt++
-    if (limt <= 4) {
+    if (this.data.seats.length < 4) {
       map[ver][hor] = 2
       for (var i = 0; i < map.length; i++) {
         for (var j = 0; j < map[i].length; j++) {
@@ -88,12 +99,13 @@ Page({
       })
     }
     else {
-     wx.showToast({
-  title: '最多选4个座位',
-  icon: 'success',
-  duration: 2000
-})
+      wx.showToast({
+        title: '最多选4个座位',
+        icon: 'success',
+        duration: 2000
+      })
     }
+    console.log(seats.length)
   },
   cancelSeat: function (ev) {
     var ver = ev.currentTarget.dataset.ver

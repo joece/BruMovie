@@ -6,7 +6,7 @@
   <view class="map">
     <view class="line"></view>
     <view class="map-wrap" bindtap="openMap">
-      <image src="http://localhost:8888/public/img/icon/mapmark.png" style="width:36rpx;height:36rpx;"></image>
+      <image src="../../images/locate.png" style="width:36rpx;height:36rpx;"></image>
       <view class="map-let">地图</view>
     </view>
   </view>
@@ -32,14 +32,17 @@
       <view wx:for="{{threedays}}" id="{{index}}" class="oneday {{index==theday?'activeday':''}}" bindtap="selectDate">{{item}}</view>
     </view>
     <view class="times">
-      <navigator url="./seat/seat" class="time" wx:for="{{activemovie.sessions[theday]}}">
+      <navigator url="./seat/seat?room={{item.showing_room}}&price={{item.price}}" class="time" wx:for="{{activemovie[theday]}}">
         <view class="">
-          <view class="start">{{item.start}}</view>
-          <view class="glr">{{item.end}}散场</view>
+          <view class="start">{{item.start_hour}}</view>
+          <view class="glr" style='display:flex; flex-direction:row;'>
+            <text style='width:26px;margin-right:1px;overflow:hidden;'>{{item.end_hour}}</text>
+            <text>散场</text>
+          </view>
         </view>
         <view class="eg">
           <view class="effects">{{item.effects}}</view>
-          <view class="glr room">{{item.room}}</view>
+          <view class="glr room">{{item.showing_room}}号厅</view>
         </view>
         <view class="pg">
           <view class="pd">

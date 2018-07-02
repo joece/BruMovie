@@ -15,16 +15,17 @@ Page({
     
     console.log('shop-onLoad')
     wx.request({
-      url: 'http://localhost:8888/shop/',
+      url: 'https://k3d2hspl.qcloud.la/weapp/screening?movieId=0&cinemaId=0',
       success: function (res) {
+        wx.cc = res.data.data
         console.log(res.data.data)
-        var shop = res.data.data
-        var imgUrl = shop.movies[2].cover
-        var activemovie=shop.movies[2]
+        var movies = res.data.data.values
+        //var imgUrl = shop.movies[2].cover
+        //var activemovie=shop.movies[2]
         that.setData({
-          shop: shop,
-          imgUrl: imgUrl,
-          activemovie:activemovie
+            shop: {},
+            imgUrl: '',
+            activemovie: [movies]
         })
       }
     })
@@ -59,9 +60,9 @@ Page({
     })
   },
   selectDate:function(e){
-var theday=e.currentTarget.id
-this.setData({
-  theday:theday
-})
+    var theday=e.currentTarget.id
+    this.setData({
+      theday:theday
+    })
   }
 })

@@ -132,6 +132,8 @@ line-height: 84rpx;
 }
 .start{
   font-size: 32rpx;
+  width: 40px;
+  overflow: hidden;
 }
 .effects{
   font-size: 24rpx;
