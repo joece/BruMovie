@@ -32,7 +32,7 @@
       <view wx:for="{{threedays}}" id="{{index}}" class="oneday {{index==theday?'activeday':''}}" bindtap="selectDate">{{item}}</view>
     </view>
     <view class="times">
-      <navigator url="./seat/seat?room={{item.showing_room}}&price={{item.price}}" class="time" wx:for="{{activemovie[theday]}}">
+      <navigator url="./seat/seat?col={{item.max_col}}&row={{item.max_row}}&sttime={{item.start_hour}}&etime={{item.end_hour}}&price={{item.price}}&showing_room={{item.showing_room}}" class="time" wx:for="{{activemovie[theday]}}">
         <view class="">
           <view class="start">{{item.start_hour}}</view>
           <view class="glr" style='display:flex; flex-direction:row;'>

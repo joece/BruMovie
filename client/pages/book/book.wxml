@@ -5,26 +5,27 @@
     <text class='time'>今天07-02 22:40</text>
     <view class='address'>
       <text class='cinema'>万达影院（万胜围店）</text>
-      <text class='room'>1号厅</text>
+      <text class='room'>{{ticketInfo.showing_room}}号厅</text>
     </view>
-    <view class='seats' style='padding:3px;'>6排12座</view>
+    <view class='seats' style='padding:3px;'>{{ticketInfo.seats}}</view>
   </view>
   <view class='cost'>
-    <text style='font-size:16px; color: #a1a1a1; margin-left:12px;'>票价</text>
-    <text style='font-size:13px; color: #a1a1a1; margin-left:188px;'>含服务费3元/张</text>
-    <text style='font-size:13px; color: #ef4238; margin-left: 5px;'>9.9元</text>
+    <text style='font-size:16px; color: #a1a1a1; margin-left:16rpx;'>票价</text>
+    <text style='font-size:13px; color: #a1a1a1; margin-left:320rpx;'>含服务费3元/张</text>
+    <text style='font-size:14px; color: #ef4238; margin-left: 6rpx;'>{{ticketInfo.totalcost}}</text>
+    <text style='font-size:11px; color: #ef4238;'>元</text>
   </view>
 </view>
 
 <navigator class='discount'>
-  <text style='font-size:16px; color: #a1a1a1; margin-left:6px;'>活动与优惠券</text>
-  <text style='font-size:16px; margin-left:200px;'>无可用</text>
+  <text style='font-size:16px; color: #a1a1a1; margin-left:6rpx;'>活动与优惠券</text>
+  <text style='font-size:16px; margin-left:360rpx;'>无可用</text>
 </navigator>
 
 <view class='confirmbar'>
   <view>
     <text style='font-size:13px;'>还需支付：</text>
-    <text style='font-size:14px; color: #ef4238; '>9.9元</text>
+    <text style='font-size:14px; color: #ef4238; '>{{ticketInfo.totalcost}}元</text>
   </view>
   <view class='paybtn' bindtap='confirmPay'>确认支付</view>
 </view>

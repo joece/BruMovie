@@ -78,7 +78,6 @@ Page({
         console.log('拒绝获取用户位置')
       }
     })
-    console.log(app.globalData.currentCity)
   }
 
   

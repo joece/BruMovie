@@ -8,44 +8,52 @@ Page({
   data: {
     roomInfo: {},
     map: [],
+    resseats: [],
     seats: [],
     willChange: false,
     hasSelected: false,
     deltaX: 0,
     deltaY: 0,
-    columnArr: []
+    columnArr: [],
+    totalcost: 0
   },
   onLoad: function (options) {
     var that = this
+    var baseInfo = options
+    console.log(baseInfo)
+    var orimap = []
+    for(var i = 0; i < baseInfo.row; i++){
+      var rowmap = []
+      for(var j = 0; j < baseInfo.col; j++)
+        rowmap.push(0)
+      orimap.push(rowmap)
+    }
+    console.log(orimap)
     wx.request({
-      url: 'https://k3d2hspl.qcloud.la/weapp/seat?movieId=0&cinemaId=0&screeningId=0',
-      data: {},
+      url: 'https://k3d2hspl.qcloud.la/weapp/seat?cinema_id=0&screening_id=0&room_id=1',
+      data: {}, 
       success: function (res) {
-        var resVal = res.data.data.values[0]
-        var info = { resVal, 'showing_room': options.room, 'price': options.price }
-        console.log(info)
+        var seats = res.data.data.values  
+        for(var i = 0; i < seats.length; i++){
+          var r = seats[i].row, c = seats[i].col, s = seats[i].state
+          orimap[r][c] = s
+        }
+        console.log(orimap)
         that.setData({
-          roomInfo: info
+          roomInfo: baseInfo,
+          map: orimap
         })
       }
     })
   },
   onReady: function () {
-    var roomInfo = this.data.roomInfo.resVal
+    var roomInfo = this.data.roomInfo
     var columnArr = []
-    var seatmap = []
-    var index = 0
     for (var i = 1; i <= roomInfo.row; i++) {
       columnArr.push(i)
-      var rowmap = []
-      for(var j = 1; j <= roomInfo.col; j++, index++){
-        rowmap.push(parseInt(roomInfo.state[index]))
-      }
-      seatmap.push(rowmap)
     }
     this.setData({
-      columnArr: columnArr,
-      map: seatmap
+      columnArr: columnArr
     })
     
   },
@@ -93,9 +101,11 @@ Page({
           }
         }
       }
+      var ttc = this.data.roomInfo.price * seats.length
       this.setData({
         map: map,
-        seats: seats
+        seats: seats,
+        totalcost: ttc.toFixed(1)
       })
     }
     else {
@@ -123,9 +133,11 @@ Page({
         }
       }
     }
+    var ttc = this.data.roomInfo.price * seats.length
     this.setData({
       map: map,
-      seats: seats
+      seats: seats,
+      totalcost: ttc.toFixed(1)
     })
 
   }
