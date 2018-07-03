@@ -17,7 +17,6 @@ Page({
     wx.request({
       url: 'https://k3d2hspl.qcloud.la/weapp/screening?movieId=0&cinemaId=0',
       success: function (res) {
-        wx.cc = res.data.data
         console.log(res.data.data)
         var movies = res.data.data.values
         //var imgUrl = shop.movies[2].cover

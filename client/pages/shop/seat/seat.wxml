@@ -2,7 +2,7 @@
   <view class="st">
     <view class="shop">{{shop.shop}}</view>
     <view class="ts">
-      <text class="time">{{shop.time}}</text>
+      <text class="time">{{roomInfo.sttime}}</text>
       <text class="effects">{{shop.effects}}</text>
     </view>
   </view>
@@ -33,7 +33,7 @@
     <view class="columnNum" wx:for="{{columnArr}}">{{item}}</view>
   </view>
   <view class="map {{willChange?'willChange':''}}" bindtouchstart="scrollstart" bindtouchmove="scrollmove" bindtouchend="scrollend" style="transform: translate({{deltaX}}px,{{deltaY}}px)">
-    <view class="centerTips" style="margin-left:{{44*shop.center}}rpx">银幕中央</view>
+    <view class="centerTips">银幕中央</view>
     <view class="" wx:for="{{map}}" wx:for-item="i" class="row" wx:for-index="ver">
       <view class="" wx:for="{{i}}" wx:for-index="hor">
         <view wx:if="{{item==0}}" class="seat-img"></view>
@@ -57,12 +57,13 @@
   <view class="confirm" hidden="{{!seats.length}}">
     <view class="total" >
       <view class="price">
-        <view class="price-s">{{seats.length*roomInfo.price}}</view>
+        <view class="price-s">{{totalcost}}</view>
         <view class="price-y">元</view>
       </view>
       <view class="priceL">{{roomInfo.price}}x{{seats.length}}</view>
     </view>
-    <navigator url="../../book/book" class="confirm-s">确认选座</navigator>
+    <navigator wx:if="{{logged}}" url="../../book/book?seats={{seats}}&totalcost={{totalcost}}&time={{roomInfo.sttime}}&showing_room={{roomInfo.showing_room}}&filmname={{}}&cinema={{}}" class="confirm-s">确认选座</navigator>
+    <navigator wx:else url='../../login/index' class='confirm-s'>确认选座</navigator>
   </view>
   <view class="confirm" hidden="{{seats.length}}">
     <view class="total" >
@@ -70,7 +71,7 @@
         <view class="price-s">0</view>
         <view class="price-y">元</view>
       </view>
-      <view class="priceL">票价{{shop.price}}</view>
+      <view class="priceL">票价{{roomInfo.price}}元/张</view>
     </view>
     <view class="confirm-s plaseS">请先选座</view>
   </view>
