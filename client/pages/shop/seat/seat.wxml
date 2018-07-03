@@ -62,7 +62,8 @@
       </view>
       <view class="priceL">{{roomInfo.price}}x{{seats.length}}</view>
     </view>
-    <navigator url="../../book/book?seats={{seats}}&totalcost={{totalcost}}&time={{roomInfo.sttime}}&showing_room={{roomInfo.showing_room}}&filmname={{}}&cinema={{}}" class="confirm-s">确认选座</navigator>
+    <navigator wx:if="{{logged}}" url="../../book/book?seats={{seats}}&totalcost={{totalcost}}&time={{roomInfo.sttime}}&showing_room={{roomInfo.showing_room}}&filmname={{}}&cinema={{}}" class="confirm-s">确认选座</navigator>
+    <navigator wx:else url='../../login/index' class='confirm-s'>确认选座</navigator>
   </view>
   <view class="confirm" hidden="{{seats.length}}">
     <view class="total" >

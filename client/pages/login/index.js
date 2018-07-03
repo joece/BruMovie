@@ -12,13 +12,19 @@ Page({
         requestResult: ''
     },
 
+    onLoad: function(){
+      wx.showToast({
+        title: '确认选座前请先登录',
+        icon: 'none'
+      })
+    },
     // 用户登录示例
     login: function() {
         if (this.data.logged) return
         console.log('loging')
         util.showBusy('正在登录')
         var that = this
-
+        console.log(app.globalData.userInfo)
         // 调用登录接口
         qcloud.login({
             success(result) {
@@ -35,11 +41,12 @@ Page({
                         url: config.service.requestUrl,
                         login: true,
                         success(result) {
-                            util.showSuccess('登录成功')
                             that.setData({
                                 userInfo: result.data.data,
                                 logged: true
                             })
+                            app.globalData.userInfo = result
+                            util.showSuccess('登录成功')
                         },
 
                         fail(error) {
@@ -48,13 +55,16 @@ Page({
                         }
                     })
                 }
+                
             },
-
             fail(error) {
                 util.showModel('登录失败', error)
                 console.log('登录失败', error)
             }
         })
+    },
+    onShow: function(){
+      
     },
 
     // 切换是否带有登录态

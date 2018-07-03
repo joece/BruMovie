@@ -1,4 +1,4 @@
-var seatmap = require('../../../utils/seatmap');
+const app = getApp()
 var limt = 0
 function formatNumber(n) {
   n = n.toString()
@@ -15,7 +15,8 @@ Page({
     deltaX: 0,
     deltaY: 0,
     columnArr: [],
-    totalcost: 0
+    totalcost: 0,
+    logged: false
   },
   onLoad: function (options) {
     var that = this
@@ -50,6 +51,7 @@ Page({
     var roomInfo = this.data.roomInfo
     var columnArr = []
     for (var i = 1; i <= roomInfo.row; i++) {
+      console.log('pushrow')
       columnArr.push(i)
     }
     this.setData({
@@ -58,6 +60,13 @@ Page({
     
   },
   onShow: function () {
+    console.log(app.globalData.userInfo)
+    if (app.globalData.userInfo) {
+      console.log('logged')
+      this.setData({
+        logged: true
+      })
+    }
   },
   scrollstart: function (ev) {
     this.sX = ev.changedTouches[0].clientX

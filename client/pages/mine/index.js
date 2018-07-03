@@ -7,7 +7,7 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    hasUseInfo:false,
+    hasUserInfo:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   
@@ -115,6 +115,14 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onShow: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    }
   },
 
   onReady: function () {

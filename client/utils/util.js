@@ -50,7 +50,13 @@ var showBusy = text => wx.showToast({
 // 显示成功提示
 var showSuccess = text => wx.showToast({
   title: text,
-  icon: 'success'
+  icon: 'success',
+  duration: 1800,
+  complete(){
+    wx.navigateBack({
+      delta: 1
+    })
+  }
 })
  
 // 显示失败提示
