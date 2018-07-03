@@ -36,10 +36,10 @@
     <view class="centerTips">银幕中央</view>
     <view class="" wx:for="{{map}}" wx:for-item="i" class="row" wx:for-index="ver">
       <view class="" wx:for="{{i}}" wx:for-index="hor">
-        <view wx:if="{{item==0}}" class="seat-img"></view>
-        <image src="../../../images/seat-w.png" wx:if="{{item==1}}" class="seat-img" catchtap="selectSeat" data-hor="{{hor}}" data-ver="{{ver}}"></image>
-        <image src="../../../images/seat-r.png" wx:if="{{item==3}}" class="seat-img"></image>
-        <image catchtap="cancelSeat" src="../../../images/seat-s.png" wx:if="{{item==2}}" class="seat-img" data-hor="{{hor}}" data-ver="{{ver}}"></image>
+        <view wx:if="{{item==2}}" class="seat-img"></view>
+        <image src="../../../images/seat-w.png" wx:if="{{item==0}}" class="seat-img" catchtap="selectSeat" data-hor="{{hor}}" data-ver="{{ver}}"></image>
+        <image src="../../../images/seat-r.png" wx:if="{{item==1}}" class="seat-img"></image>
+        <image catchtap="cancelSeat" src="../../../images/seat-s.png" wx:if="{{item==3}}" class="seat-img" data-hor="{{hor}}" data-ver="{{ver}}"></image>
       </view>
     </view>
   </view>
@@ -62,7 +62,7 @@
       </view>
       <view class="priceL">{{roomInfo.price}}x{{seats.length}}</view>
     </view>
-    <navigator wx:if="{{logged}}" url="../../book/book?seats={{seats}}&totalcost={{totalcost}}&time={{roomInfo.sttime}}&showing_room={{roomInfo.showing_room}}&filmname={{}}&cinema={{}}" class="confirm-s">确认选座</navigator>
+    <navigator wx:if="{{logged}}" url="../../book/book?seats={{seats}}&totalcost={{totalcost}}&time={{roomInfo.sttime}}&showing_room={{roomInfo.showing_room}}&filmname={{}}&cinema={{}}&seatnums={{seatnums}}" class="confirm-s">确认选座</navigator>
     <navigator wx:else url='../../login/index' class='confirm-s'>确认选座</navigator>
   </view>
   <view class="confirm" hidden="{{seats.length}}">

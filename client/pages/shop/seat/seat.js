@@ -8,7 +8,7 @@ Page({
   data: {
     roomInfo: {},
     map: [],
-    resseats: [],
+    seatnums:{},
     seats: [],
     willChange: false,
     hasSelected: false,
@@ -98,15 +98,16 @@ Page({
     var ver = ev.currentTarget.dataset.ver
     var hor = ev.currentTarget.dataset.hor
     var map = this.data.map
-    var seats = []
+    var seats = [], seatnums = []
     var cStr = ''
     if (this.data.seats.length < 4) {
-      map[ver][hor] = 2
+      map[ver][hor] = 3
       for (var i = 0; i < map.length; i++) {
         for (var j = 0; j < map[i].length; j++) {
-          if (map[i][j] === 2) {
+          if (map[i][j] === 3) {
             cStr = formatNumber(i + 1) + '排' + (j + 1) + '座'
             seats.push(cStr)
+            seatnums.push([i, j])
           }
         }
       }
@@ -114,6 +115,7 @@ Page({
       this.setData({
         map: map,
         seats: seats,
+        seatnums: seatnums,
         totalcost: ttc.toFixed(1)
       })
     }
@@ -130,15 +132,16 @@ Page({
     var ver = ev.currentTarget.dataset.ver
     var hor = ev.currentTarget.dataset.hor
     var cStr = ''
-    var seats = []
+    var seats = [], seatnums = []
     console.log(ev)
     var map = this.data.map
-    map[ver][hor] = 1
+    map[ver][hor] = 0
     for (var i = 0; i < map.length; i++) {
       for (var j = 0; j < map[i].length; j++) {
-        if (map[i][j] === 2) {
+        if (map[i][j] === 3) {
           cStr = formatNumber(i + 1) + '排' + (j + 1) + '座'
           seats.push(cStr)
+          seatnums.push([i, j])
         }
       }
     }
@@ -146,6 +149,7 @@ Page({
     this.setData({
       map: map,
       seats: seats,
+      seatnums: seatnums,
       totalcost: ttc.toFixed(1)
     })
 
