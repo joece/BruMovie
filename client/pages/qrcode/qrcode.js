@@ -5,63 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ordernumber:23474623584673285,
-    qrcodeimg:"../../images/qrcode.png"
+    orderbase:{},
+    tickets:[],
+    qrcodeimg: '../../images/qrcode.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    var that = this
+    wx.request({
+      url: 'https://k3d2hspl.qcloud.la/weapp/getOrder',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        skey: wx.getStorageSync('weapp_session_' + 'F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'),
+        order_id: options.order_id
+      },
+      success(result) {
+        wx.pc = result.data
+        console.log(result.data.data)
+        that.setData({
+          orderbase: result.data.data.order[0],
+          tickets: result.data.data.tickets[0]
+        }) 
+      }
+    })
   }
+
 })

@@ -1,15 +1,24 @@
 <!--pages/futuretickets/index.wxml-->
-<view wx:for="{{myorders}}" class="my_orders">
-  <view class="cinemaname">{{item.cinema}}</view> 
-  <view class="rowflex">
-    <view class="order1" bindtap="showticketorder">
-      <image class="img1" src="{{item.postpath}}"></image>
+<view wx:for="{{myorders}}">
+  <navigator url="../qrcode/qrcode?order_id={{item.order_id}}" class="my_orders">
+    <view class="cinemaname">{{tickets[index][0][0].cinema_name}}</view> 
+    <view class="rowflex">
+      <view class="order1" bindtap="showticketorder">
+        <image class="img1" src="{{item.postpath}}"></image>
+      </view>
+      <view class="order2" bindtap="showticketorder">
+        <text class="movie"> {{tickets[index][0][0].movie_name}} </text>
+        <text class="time"> {{tickets[index][0][0].start_time}} </text>
+        <view style='display: flex; flex-direction: row;'>
+          <text class="chair" wx:for='{{tickets[index][0]}}'> {{item.row + 1}}排{{item.col + 1}}座 </text>
+        </view>
+        
+      </view>
     </view>
-    <view class="order2" bindtap="showticketorder">
-      <text class="movie"> {{item.moviename}} </text>
-      <text class="time"> {{item.movietime}} </text>
-      <text class="chair"> {{item.chairnum}} </text>
+    <view style='display:flex;flex-direction:row;'>
+      <view class="total">总价: {{item.totalPrice}} 元</view>
+      <view class='state' wx:if='{{item.state==0}}' style='color:purple;'>待观影</view>
+      <view class='state' wx:if='{{item.state==1}}'>已完成</view>
     </view>
-  </view>
-  <view class="total">总价: {{item.price}} 元</view>
+  </navigator> 
 </view>

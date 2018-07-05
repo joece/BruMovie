@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-   myorders:[]
+   myorders: [],
+   tickets: []
   },
   onLoad: function(){
     var that = this
@@ -20,16 +21,15 @@ Page({
       },
       success(result) {
         wx.pc = result.data
-        console.log(result)
+        console.log(result.data.data.values)
+        console.log(result.data.data.tickets)
+        that.setData({
+          myorders: result.data.data.values,
+          tickets: result.data.data.tickets
+        })
 
-        }
-     })
-  },
-
-  showticketorder: function () {
-    wx.navigateTo({
-      url: '../qrcode/qrcode',
+      }
     })
-  },
+  }
 
 })

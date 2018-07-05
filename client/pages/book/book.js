@@ -63,19 +63,11 @@ Page({
       },
       
       success(result) {
-        wx.pc = result.data
-        console.log(result)
+        wx.navigateTo({
+          url: '../qrcode/qrcode?order_id=' + result.data.data.order_id,
+        })
       }
     })
-    wx.requestPayment({
-      timeStamp: '',
-      nonceStr: '',
-      package: '',
-      signType: '',
-      paySign: '',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+
   }
 })
