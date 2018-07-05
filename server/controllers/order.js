@@ -67,9 +67,18 @@ module.exports = {
             return
         }
         var result = await DB('order').select('*').where({ open_id: open_id })
+        var tickets = []
+        for (let i=0;i<result.length;i++) {
+          let order_id = result[i].order_id
+          var aa = await DB.raw('SELECT * FROM ticket LEFT JOIN ticketOrder ON ticket.ticket_id=ticketOrder.ticket_id LEFT JOIN movie ON ticket.movie_id=movie.movie_id LEFT JOIN cinema ON cinema.cinema_id=ticket.cinema_id LEFT JOIN screening ON ticket.screening_id=screening.screening_id WHERE order_id = ' + order_id).then((res) => {
+            return res
+          })
+          tickets.push(aa)
+        }
         ctx.state.data = {
             resultCode: 0,
-            values: result
+            values: result,
+            tickets: tickets
         }
     },
     pay: async ctx => {
